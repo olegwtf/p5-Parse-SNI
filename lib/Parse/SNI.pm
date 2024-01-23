@@ -22,6 +22,9 @@ Parse::SNI - parse Server Name Indication from TLS handshake
 
 =cut
 
+use strict;
+use Exporter 'import';
+
 our $VERSION = '0.10';
 
 use constant {
@@ -30,7 +33,6 @@ use constant {
     TLS_HANDSHAKE_TYPE_CLIENT_HELLO => 0x01,
 };
 
-use Exporter 'import';
 our @EXPORT = qw(parse_sni);
 
 =head1 FUNCTIONS
