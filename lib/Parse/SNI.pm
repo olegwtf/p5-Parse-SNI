@@ -120,7 +120,7 @@ sub parse_sni {
                 die 'Incorrect TLS header length (8)' if $pos + 3 + $len > $end;
 
                 if ( $data[$pos] == 0x00 ) {
-                    my $sni = join '', map { chr } @data[$pos+3..$pos+2+$len];
+                    my $sni = pack 'C*', @data[$pos+3..$pos+2+$len];
                     return wantarray ? ( $sni, $pos+3 ) : $sni;
                 }
 
